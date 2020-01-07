@@ -1,0 +1,50 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+    <link rel="stylesheet" type="text/css" href="/assets/nav.css">
+    <script src="/assets/jquery-3.4.1.min.js"></script>
+    <script src="/assets/jquery-3.4.1.js"></script>
+    <script>
+        console.log("i am javascript from login.ejs");
+        $(document).ready(function(){
+            $('#submit').click(function(){
+                var usr_name = $('#name').val();
+                var usr_pass = $('#pass').val();
+                
+                var len = usr_name.length;
+                var passLen = usr_pass.length;
+                if(len < 5 && passLen < 5){
+                    $('#error-box').html('name and passwords must be atleast of 5 chars.');
+                }
+                else{
+                    $.ajax({
+                        url: '/login',
+                        method: 'POST',
+                        data: {name: usr_name, password: usr_pass},
+                        success: function(res){
+                            if(res.name == null){
+                                console.log('ajax res == null');
+                                $('#error-box').html('name or password do not match.');
+                            }
+                            else if(usr_name == res.name) {
+                                console.log('ajax res = '+res.name);
+                                window.location.href = '/home?name='+res.name;
+                            }
+                            
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <% include nav.ejs %>
+        <input id="name" type="text" name="who" value="<%= qs.name %>" /><input id="pass" type="password" name="password" value="<%= qs.pass %>" /><button id="submit" type="submit" value="submit">submit</button>
+        
+        <p id="error-box" ></p>
+</body>
+</html> 

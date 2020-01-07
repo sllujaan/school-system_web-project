@@ -1,0 +1,45 @@
+.home{
+    background-color: purple;
+    padding: 12px;
+}
+.home:hover{
+    background-color:orange;
+    cursor: pointer;
+}
+
+
+.nav{
+    padding: 0;
+    margin: 0;
+    margin-top: 0;
+
+}
+
+@media only screen and (min-width: 600px){
+    .home{
+        background-color:green;
+        padding: 15px;
+    }
+}
+
+.example-icon {
+    padding: 0 14px;
+  }
+  
+  .example-spacer {
+    flex: 1 1 auto;
+  }
+
+.topNav{
+    position: fixed;
+    -webkit-box-shadow: 0px 4px 18px 2px rgba(0,0,0,0.39);
+    -moz-box-shadow: 0px 4px 18px 2px rgba(0,0,0,0.39);
+    box-shadow: 0px 4px 18px 2px rgba(0,0,0,0.39);
+    top: 0;
+}
+
+span :hover{
+    background-color: #283593;
+}
+
+

@@ -1,0 +1,51 @@
+table {
+    width: 100%;
+  }
+
+.container{
+  display: inline-block;
+}
+
+.addButton{
+  margin-left: auto;
+  margin-right: 0;
+  display: flex;
+}
+
+.responsiveAdd{
+  padding: 10px;
+  display: inline-block;
+  width: 20%;
+  /*background-color: orange;*/
+}
+
+.responsiveSearch{
+  padding: 10px;
+  width: 80%;
+  display: inline-block;
+  /*background-color: green;*/
+}
+
+@media only screen and (max-width: 780px){
+  .container{
+    display: block;
+  }
+
+  .addButton{
+    margin-left: 0;
+    margin-right: auto;
+    display: block;
+  }
+  
+  .responsiveAdd{
+    display: block;
+    width: 100%;
+    /*background-color: purple;*/
+  }
+
+  .responsiveSearch{
+    width: 100%;
+    /*background-color: blue;*/
+    display: block;
+  }
+}

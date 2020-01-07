@@ -1,0 +1,114 @@
+<br>
+<!--
+<div class="container">
+    <small name="input" class="err" *ngIf="isLen() && (myInput.touched || myInput.dirty)" >name must be of 5 chars</small>
+    <div [class.has-error]="isLen() && myInput.touched" >
+        <input  #myInput="ngModel" class="form-control" [(ngModel)]="name" type="text" (keyup)="eventHandler($event)">
+    </div>
+    <button [disabled]="isLen()" (click)="onSubmit1()" class="btn" >Submit</button>
+    <div>{{myInput.touched}}</div>
+
+</div>
+
+
+
+<div class="container">
+    <input #testInput="ngModel" (keyup)="setTestName()" [(ngModel)]="testName" class="form-control" type="text" name="testInput">
+    <small *ngIf="(testName.length < 5) && (testInput.touched || testInput.dirty)" >name must be of 5 chars</small>
+    <small *ngIf="isValid() == 'maxlength'" >name shouldn't be greater than 10 chars</small>
+    <br>
+    <button [disabled]="(testName.length < 5) || (testName.length > 10)" class="btn" (click)="testSubmit()" >Submit</button>
+</div>
+
+-->
+<!--
+
+<div class="container">
+  <div class="panel panel-primary">
+    <div class="panel-heading">Panel with panel-primary class</div>
+    <div class="panel-body">
+      <form [formGroup]="employeeForm"  (ngSubmit)="onSubmit()" >
+        <!--Name container-->
+<!--        <div class="form-group" [ngClass]="{'has-error': employeeForm.get('name').errors && (employeeForm.get('name').touched || employeeForm.get('name').dirty)}" >
+          <label class="control-label">Name</label>
+          <input (click)="eventHandler($event)" required formControlName="name" type="email" class="form-control" placeholder="Enter name">
+          <small required *ngIf="employeeForm.get('name').errors?.required && (employeeForm.get('name').dirty)" class="control-label">Name is required</small>
+          <small *ngIf="employeeForm.get('name').errors?.minlength" class="control-label">name must be of 5 characters</small>
+          <small *ngIf="employeeForm.get('name').errors?.maxlength" class="control-label">name shouldn't exceed 10 characters</small>
+        </div>
+
+        <!--Password container-->
+ <!--       <div class="form-group" [ngClass]="{'has-error': employeeForm.get('password').errors && (employeeForm.get('password').touched || employeeForm.get('password').dirty)}" >
+            <label class="control-label">password</label>
+            <input (click)="eventHandler($event)" required formControlName="password" type="email" class="form-control"placeholder="Enter password">
+            <small required *ngIf="employeeForm.get('password').errors?.required && (employeeForm.get('password').dirty)" class="control-label">password is required</small>
+            <small *ngIf="employeeForm.get('password').errors?.minlength" class="control-label">password must be of 5 characters</small>
+            <small *ngIf="employeeForm.get('password').errors?.maxlength" class="control-label">password shouldn't exceed 10 characters</small>
+            <!--Submit Button-->
+ <!--           <br>
+            <small *ngIf="error" class="err">name or password don't match</small>
+            <small *ngIf="err_con" class="err">ERR_CONNECTION_REFUSED. please report to administrator</small>
+        </div>
+        <!--name or password have error-->
+    
+        <!--Submit Button-->
+ <!--       <button type="submit" [disabled]="!employeeForm.valid" class="btn btn-primary">Submit</button>
+
+        </form>
+    </div>
+  </div>
+</div>
+
+{{ employeeForm.value | json }}
+
+<br>
+<br>
+<div class="container">
+  <div class="panel panel-primary">
+      <div class="panel-heading">employeeForm.name</div>
+        <div class="panel-body">
+          <label>touched: {{ employeeForm.get('name').touched }}</label><br>
+          <label>pristine: {{ employeeForm.get('name').pristine }}</label><br>
+          <label>dirty: {{ employeeForm.get('name').dirty }}</label><br>
+          <label>required: {{ employeeForm.get('name').errors?.required }}</label>
+        </div>
+    </div>
+</div>
+
+{{ error }}
+
+
+
+-->
+
+
+
+<div class="container myContainer">
+  <!--Name Field-->
+  <div >
+    <mat-form-field class="full-input">
+      <input matInput autofocus (keyup)="loginEvent($event)" maxlength="10" placeholder="Enter your Name" [formControl]="loginForm.get('name')" required>
+      <mat-error *ngIf="loginForm.invalid" >{{ getErrorMessage('n') }}</mat-error>
+    </mat-form-field>
+  </div>
+
+  <!--password Field-->
+  <div>
+    <mat-form-field  class="full-input">
+      <input matInput (keyup)="loginEvent($event)" type="password" maxlength="10"  placeholder="Enter your Password" [formControl]="loginForm.get('password')" required>
+      <mat-error *ngIf="loginForm.invalid" >{{ getErrorMessage('p') }}</mat-error>
+    </mat-form-field>
+  </div>
+
+  <!--Submit Button-->
+  <div>
+      <mat-error *ngIf="loggingError" class="small" >Name or Password don't match.</mat-error>
+      <button class="center" [disabled]="loginForm.invalid" *ngIf="!logging" (click)="submit()" mat-raised-button color="primary" >login</button>
+      <mat-spinner *ngIf="logging" class="example-margin" class="center" diameter="40"></mat-spinner> 
+  </div>
+</div>
+
+<br><br><br><br><br><br>
+<br><br><br><br><br><br>
+<br><br><br>
+

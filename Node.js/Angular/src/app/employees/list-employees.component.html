@@ -1,0 +1,45 @@
+<p>list-employees works!</p>
+
+
+
+<div class="panel panel-primary" *ngFor='let employee of employees' >
+    <div class="panel-heading">
+        <h3 class="panel-title" >{{employee.name}}</h3>
+    </div>
+        <div class="panel-body"> <!-- If Needed Left and Right Padding in 'md' and 'lg' screen means use container class -->
+            <div class="row vertical-align">
+                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                    <img class="imageClass" [src]="employee.photoPath" >
+                </div>
+                <div class="col-xs-8 col-sm-4 col-md-4 col-lg-4">
+                    <div class="panel-definition">{{employee.id}}</div>
+                    <div class="panel-definition">{{employee.name}}</div>
+                    <div class="panel-definition">{{employee.email}}</div>
+                    <div class="panel-definition">{{employee.gender}}</div>
+                </div>
+                
+            </div>
+        </div>
+
+
+</div>
+
+
+
+
+<!--
+<div class="panel-definition">{{employee.id}}</div>
+<div class="panel-definition">{{employee.name}}</div>
+<img [src]="employee.photoPath" >
+<div class="container-fluid"> <!-- If Needed Left and Right Padding in 'md' and 'lg' screen means use container class -->
+ <!--   <div class="row">
+        <div class="col-xs-4">
+            <a href="#">col1</a>
+        </div>
+        <div class="col-xs-8">
+            <a href="#">col2</a>
+        </div>
+        
+    </div>
+</div>
+-->

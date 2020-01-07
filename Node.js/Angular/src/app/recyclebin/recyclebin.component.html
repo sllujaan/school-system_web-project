@@ -1,0 +1,32 @@
+<p>recyclebin works!</p>
+
+<div class="container">
+    <div  *ngIf="students.length > 0" class="panel panel-info">
+        <div class="panel-heading">Panel with panel-info class</div>
+        <div class="panel-body">
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Course</th>
+                    <th>Modify</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let student of students" >
+                      <td>{{ student.name }}</td>
+                      <td>{{ student.age }}</td>
+                      <td>{{ student.course }}</td>
+                      <td>
+                        <button (click)="deleteStudent(student.id)" class="btn">Delete parmanently</button>
+                        <button (click)="restoreStudent(student.id)" class="btn">Restore</button>
+                      </td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+    </div>
+    <p class="center" *ngIf="students.length == 0">No record found</p>
+    </div>
+  

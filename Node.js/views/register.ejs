@@ -1,0 +1,61 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+    <link rel="stylesheet" type="text/css" href="/assets/nav.css">
+    <script type="text/javascript" src="/assets/validator.min.js"></script>
+    <script src="/assets/jquery-3.4.1.min.js"></script>
+    <script src="/assets/jquery-3.4.1.js"></script>
+    <script>
+        console.log("i am javascript from login.ejs");
+        $(document).ready(function(){
+            $("#email").keyup( () => {
+                var usr_email = $('#email').val();
+                console.log(usr_email);
+                if( (validator.isEmail(usr_email)) ){
+                    $('#error-box').html('email is valid now');
+                }else{
+                    $('#error-box').html('email is not valid');
+                }
+            });
+            
+            /*$("#pass").keyup( () => {
+                var usr_pass = $('#pass').val();
+                console.log(pass);
+                if( (validator.isEmail(usr_email)) ){
+                    $('#error-box').html('email is valid now');
+                }else{
+                    $('#error-box').html('email is not valid');
+                }
+            });*/
+
+
+
+        });
+    </script>
+</head>
+<body>
+    <% include nav.ejs %>
+    <h1>Get yourself registered Now!</h1>
+        <p>
+        <label>name:</label><br>
+        <input id="name" type="text" name="who" value="<%= regForm.name %>" />
+        </p>
+        <p>
+        <label>email:</label><br>
+        <input id="email" type="text" name="email" value="<%= regForm.email %>" />
+    </p>
+    <p>
+        <label>password:</label><br>
+        <input id="pass" type="password" name="password" value="<%= regForm.pass %>" />
+    </p>
+    <p>
+        <button id="submit" type="submit" value="submit">submit</button>
+    </p>
+    <p>
+        <p id="error-box" ></p>
+    </p>
+</body>
+</html> 

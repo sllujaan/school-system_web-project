@@ -1,0 +1,234 @@
+<!--
+<p>add-student works!</p>
+
+<div class="container">
+    <div class="panel panel-primary">
+      <div class="panel-heading">New Student</div>
+      <div class="panel-body">
+        <form [formGroup]="studentForm"  (ngSubmit)="submit()" >
+          <!--Name container-->
+<!--          <div class="form-group" [ngClass]="{'has-error': studentForm.get('name').errors && (studentForm.get('name').touched || studentForm.get('name').dirty)}" >
+            <label class="control-label">Name</label>
+            <input  required formControlName="name" class="form-control" placeholder="Enter name">
+            <small required *ngIf="studentForm.get('name').errors?.required && (studentForm.get('name').touched)" class="control-label">Name is required</small>
+            <small *ngIf="studentForm.get('name').errors?.minlength" class="control-label">name must be of 5 characters</small>
+            <small *ngIf="studentForm.get('name').errors?.maxlength" class="control-label">name shouldn't exceed 10 characters</small>
+          </div>
+
+          <!--Father Name container-->
+  <!--        <div class="form-group" [ngClass]="{'has-error': studentForm.get('fatherName').errors && (studentForm.get('fatherName').touched || studentForm.get('fatherName').dirty)}" >
+            <label class="control-label">Father Name</label>
+            <input  required formControlName="fatherName" type="email" class="form-control"placeholder="Enter name">
+            <small required *ngIf="studentForm.get('fatherName').errors?.required && (studentForm.get('fatherName').touched)" class="control-label">Name is required</small>
+            <small *ngIf="studentForm.get('fatherName').errors?.minlength" class="control-label">name must be of 5 characters</small>
+            <small *ngIf="studentForm.get('fatherName').errors?.maxlength" class="control-label">name shouldn't exceed 10 characters</small>
+          </div>
+
+          <!--Age container-->
+<!--          <div class="form-group" [ngClass]="{'has-error': studentForm.get('age').errors && (studentForm.get('age').touched || studentForm.get('age').dirty)}" >
+            <label class="control-label">Age</label>
+            <input  required formControlName="age" type="number" class="form-control"placeholder="Enter name">
+            <small required *ngIf="studentForm.get('age').errors?.required && (studentForm.get('age').touched)" class="control-label">age is required</small>
+            <small *ngIf="studentForm.get('age').errors?.min" class="control-label">age must be 10</small>
+            <small *ngIf="studentForm.get('age').errors?.max" class="control-label">age shouldn't exceed 50</small>
+          </div>
+
+          <!--Father Name container-->
+<!--          <div class="form-group" [ngClass]="{'has-error': studentForm.get('course').errors && (studentForm.get('course').touched || studentForm.get('course').dirty)}" >
+            <label class="control-label">Course</label>
+            <input  required formControlName="course" type="email" class="form-control"placeholder="Enter name">
+            <small required *ngIf="studentForm.get('course').errors?.required && (studentForm.get('course').touched)" class="control-label">Name is required</small>
+            <small *ngIf="studentForm.get('course').errors?.minlength" class="control-label">name must be of 5 characters</small>
+            <small *ngIf="studentForm.get('course').errors?.maxlength" class="control-label">name shouldn't exceed 10 characters</small>
+          </div>
+  
+  
+          <!--Submit Button-->
+ <!--         <button type="submit" [disabled]="!studentForm.valid" class="btn btn-primary">Submit</button>
+  
+          </form>
+      </div>
+    </div>
+  </div>
+  
+  {{ studentForm.value | json }}
+  
+  <br>
+  <br>
+  <div class="container">
+    <div class="panel panel-primary">
+        <div class="panel-heading">studentForm.name</div>
+          <div class="panel-body">
+            <label>touched: {{ studentForm.get('name').touched }}</label><br>
+            <label>pristine: {{ studentForm.get('name').pristine }}</label><br>
+            <label>dirty: {{ studentForm.get('name').dirty }}</label><br>
+            <label>required: {{ studentForm.get('name').errors?.required }}</label>
+          </div>
+      </div>
+  </div>
+
+-->
+<!--
+<div class="myContainer">
+  <!--  <div class="close">
+        <mat-toolbar>
+            <mat-toolbar-row>
+              <span>New Student</span>
+              <span style="margin-left: auto; margin-right: 0;">
+                  <button mat-raised-button>
+                      <mat-icon>close</mat-icon>
+                    </button>
+              </span>
+            </mat-toolbar-row>
+        </mat-toolbar>
+    </div> -->
+
+ <!-- <div class="b1">
+    <!--Name Field-->
+<!--    <div>
+      <mat-form-field>
+        <input matInput maxlength="10" placeholder="Enter your Name" [formControl]="studentForm.get('name')" required>
+        <mat-error *ngIf="studentForm.invalid" >{{ getErrorMessage('n') }}</mat-error>
+      </mat-form-field>
+    </div>
+
+    <!--Father Name Field-->
+ <!--   <div>
+      <mat-form-field>
+        <input matInput maxlength="10" placeholder="Enter your Father Name" [formControl]="studentForm.get('fatherName')" required>
+        <mat-error *ngIf="studentForm.invalid" >{{ getErrorMessage('f') }}</mat-error>
+      </mat-form-field>
+    </div>
+
+    <!--Email Field-->
+<!--    <div>
+        <mat-form-field>
+          <input matInput maxlength="10" placeholder="Enter your Email" [formControl]="studentForm.get('email')" required>
+          <mat-error *ngIf="studentForm.invalid" >{{ getErrorMessage('e') }}</mat-error>
+        </mat-form-field>
+      </div>
+    
+    <!--Phone Field-->
+<!--    <div>
+        <mat-form-field>
+          <input matInput maxlength="10" placeholder="Enter your Phone" [formControl]="studentForm.get('password')" required>
+          <mat-error *ngIf="studentForm.invalid" >{{ getErrorMessage('p') }}</mat-error>
+        </mat-form-field>
+      </div>
+
+    <!--Password Field-->
+<!--    <div>
+        <mat-form-field>
+          <input matInput maxlength="10" placeholder="Enter your Password" [formControl]="studentForm.get('password')" required>
+          <mat-error *ngIf="studentForm.invalid" >{{ getErrorMessage('p') }}</mat-error>
+        </mat-form-field>
+    </div>
+    
+    <!--conform Password Field-->
+<!--    <div>
+        <mat-form-field>
+          <input matInput maxlength="10" placeholder="Enter your password" [formControl]="studentForm.get('password')" required>
+          <mat-error *ngIf="studentForm.invalid" >{{ getErrorMessage('p') }}</mat-error>
+        </mat-form-field>
+    </div>
+    
+    <!--Age Field-->
+ <!--   <div>
+      <mat-form-field>
+        <mat-select placeholder="Select your Age" required [formControl]="studentForm.get('age')" >
+          <mat-option *ngFor='let _age of age' [value]="_age">{{_age}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div class="b2">block2 ornage</div>
+</div>
+
+
+<br>
+-->
+
+<div class="topContainer">
+
+  <div style=" height: 70px; width: calc(100% - 18px); display: block; position: absolute;">
+    <mat-toolbar color="primary">
+      <mat-toolbar-row>
+        <span>New Student</span>
+        <span style="margin-left: auto; margin-right: 0;">
+          <button mat-raised-button>
+            <mat-icon>close</mat-icon>
+          </button>
+        </span>
+      </mat-toolbar-row>
+    </mat-toolbar>
+  </div>
+
+  <div class="formContainer">
+  
+    <div class="box1">aa</div>
+
+    <div class="box2">
+          <!--Age Field-->
+          <div>
+            <mat-form-field>
+              <mat-select placeholder="Select your Age" required [formControl]="studentForm.get('age')" >
+                <mat-option *ngFor='let _age of age' [value]="_age">{{_age}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        
+        <!--Gender Field-->
+        <div style="text-align: left;">
+            <div><label id="example-radio-group-label">Select Gender</label></div>
+          <mat-radio-group aria-label="Select an option">
+            <mat-radio-button value="1">Male</mat-radio-button>
+            <mat-radio-button value="2" style="margin-left: 10px;">Female</mat-radio-button>
+          </mat-radio-group>
+        </div>
+  
+        <!--Date Picker-->
+        <div>
+          <mat-form-field>
+            <input matInput [matDatepicker]="picker" placeholder="Date of Birth">
+            <mat-datepicker-toggle  matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+        </div>
+  
+        <!-- backuped image GUI
+          <div class="custom-file mb-3" style="background-color: green;">
+            <input accept="image/*" (change)="imageUploadFun($event)" type="file" style="width: 100%;background-color: yellow;" id="customFile" name="filename">
+            <br>
+            <div>
+              <img name="userImage" [src]="imagePath" style="height: 150px;width: 150px;" alt="error">          
+            </div>
+          </div>-->
+  
+          <div class="custom-file mb-3">
+  
+            <input accept="image/*" (change)="imageUploadFun($event)" type="file" style="width: 100%;" id="customFile" name="filename">
+              <br>
+  
+            <div style="width: 150px; height: 150px; border: 2px solid grey; border-radius: 12px;">
+              
+              <div>
+                <img name="userImage" [src]="imagePath" style="height: 146px;width: 146px; border-radius: 12px;" alt="error">          
+              </div>
+            </div>
+            
+            
+          </div>
+  
+        <div style="margin-top: 20px;">
+            <button mat-raised-button (click)="trySubmit()" color="primary">Submit</button>
+            <button style="margin-left: 10px;" mat-raised-button color="warn">Clear</button>
+        </div>
+    </div>
+
+    
+
+  </div>
+</div>
+
+<br>

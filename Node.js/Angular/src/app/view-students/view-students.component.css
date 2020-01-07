@@ -1,0 +1,30 @@
+.btn{
+    margin-left: 4px;
+}
+.center{
+    text-align: center;
+}
+
+
+.width{
+    width: 200px;
+    display: table-cell;
+}
+.right{
+    float: right;
+    position: relative;
+}
+
+.searchSuggestions{
+    background-color: green;
+    margin-top: 100px;
+}
+
+
+table {
+    width: 100%;
+  }
+  
+  th.mat-sort-header-sorted {
+    color: black;
+  }

@@ -1,0 +1,86 @@
+<p>create-employess works!</p>
+
+<div class="container">
+  <div class="panel panel-primary">
+    <div class="panel-heading">Create Employee</div>
+    <div class="panel-body">
+      <form [formGroup]="employeeForm"  (ngSubmit)="onSubmit()" >
+        <!--Name container-->
+        <div class="form-group" [ngClass]="{'has-error': employeeForm.get('name').errors && (employeeForm.get('name').touched || employeeForm.get('name').dirty)}" >
+          <label class="control-label">Name</label>
+          <input (keyup)="myEvent($event)" required formControlName=" " type="email" class="form-control"placeholder="Enter name">
+          <small required *ngIf="employeeForm.get('name').errors?.required && (employeeForm.get('name').touched)" class="control-label">Name is required</small>
+          <small *ngIf="employeeForm.get('name').errors?.minlength" class="control-label">name must be of 5 characters</small>
+          <small *ngIf="employeeForm.get('name').errors?.maxlength" class="control-label">name shouldn't exceed 10 characters</small>
+        </div>
+
+        <!--Password container-->
+        <div class="form-group" [ngClass]="{'has-error': employeeForm.get('password').errors && (employeeForm.get('password').touched || employeeForm.get('password').dirty)}" >
+            <label class="control-label">Password</label>
+            <input (keyup)="myEvent($event)" required formControlName="password" type="email" class="form-control"placeholder="Enter password">
+            <small required *ngIf="employeeForm.get('password').errors?.required && (employeeForm.get('password').touched)" class="control-label">password is required</small>
+            <small *ngIf="employeeForm.get('password').errors?.minlength" class="control-label">password must be of 5 characters</small>
+            <small *ngIf="employeeForm.get('password').errors?.maxlength" class="control-label">password shouldn't exceed 10 characters</small>
+          </div>
+
+      <!--radio buttton container-->
+      <div class="form-control">
+        <label class="radio-inline">
+          <input (click)="contactPrefChange('email')" type="radio" name="contactPref" formControlName="contactPref" value="email">Email
+        </label>
+        <label class="radio-inline">
+          <input (click)="contactPrefChange('phone')" type="radio" name="contactPref" formControlName="contactPref" value="phone" >Phone
+        </label>
+      </div>
+      <br>
+
+<!--email container-->
+<div class="form-group" [ngClass]="{'has-error': employeeForm.get('email').errors}" >
+  <label class="control-label">Email</label>
+  <input (keyup)="myEvent($event)" formControlName="email" type="email" class="form-control"placeholder="Enter Phone">
+  <small required *ngIf="employeeForm.get('email').errors?.required" class="control-label">Email is required</small>
+  <small *ngIf="employeeForm.get('email').errors?.email" class="control-label">Email must be a valid Email</small>
+</div>
+
+<!--phone container-->
+<div class="form-group" [ngClass]="{'has-error': employeeForm.get('phone').errors}" >
+  <label class="control-label">Phone</label>
+  <input (keyup)="myEvent($event)" formControlName="phone" type="email" class="form-control"placeholder="Enter Phone">
+  <small required *ngIf="employeeForm.get('phone').errors?.required" class="control-label">Phone number is required</small>
+  <small *ngIf="employeeForm.get('phone').errors?.minlength && !(employeeForm.get('phone').errors?.pattern)" class="control-label">phone number must be less that 11 digits</small>
+  <small *ngIf="employeeForm.get('phone').errors?.maxlength && !(employeeForm.get('phone').errors?.pattern)" class="control-label">name shouldn't exceed 14 digits</small>
+  <small *ngIf="employeeForm.get('phone').errors?.pattern" class="control-label">invalid phone number</small>
+</div>
+
+
+
+
+
+
+        <!--Submit Button-->
+        <button type="submit" [disabled]="!employeeForm.valid" class="btn btn-primary">Submit</button>
+
+        <button type="button" (click)="onLoadAPi()" class="btn btn-primary marg">Load API</button>
+        </form>
+    </div>
+  </div>
+</div>
+
+{{ employeeForm.value | json }}
+
+<br>
+<br>
+<div class="container">
+  <div class="panel panel-primary">
+      <div class="panel-heading">employeeForm.name</div>
+        <div class="panel-body">
+          <label>touched: {{ employeeForm.get('name').touched }}</label><br>
+          <label>pristine: {{ employeeForm.get('name').pristine }}</label><br>
+          <label>dirty: {{ employeeForm.get('name').dirty }}</label><br>
+          <label>required: {{ employeeForm.get('name').errors?.required }}</label>
+        </div>
+    </div>
+</div>
+
+
+

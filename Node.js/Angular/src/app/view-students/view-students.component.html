@@ -1,0 +1,104 @@
+<p>view-students works!</p>
+<button mat-raised-button>Hello</button>
+
+<div class="container" >
+  <div class="width md-form active-pink active-pink-2 mb-3 mt-0">
+      <label>Search:</label>
+    <input (keyup)="searchFun($event)" [(ngModel)]="nameKey" class="form-control" type="text" placeholder="Search" aria-label="Search">
+  </div>
+
+  <div class="width">
+    <label for="sel1">Search by:</label>
+      <select (change)="onSelectchange()" class="form-control" [(ngModel)]="selectedOption">
+        <option value='1'>Name</option>
+        <option value='2'>Id</option>
+        <option value='3'>Age</option>
+        <option value='4'>Course</option>
+      </select>
+  </div>
+
+  <div class="width">
+    <label for="sel1">Sort by:</label>
+      <select (change)="onSortChange()" class="form-control" [(ngModel)]="sortOption">
+        <option value='1'>Name</option>
+        <option value='2'>Id</option>
+        <option value='3'>Age</option>
+        <option value='4'>Course</option>
+      </select>
+  </div>
+
+</div>
+
+<p>Sort option: {{ sortOption }}</p>
+<p>Selected option: {{ selectedOption }}</p>
+<p>Name: {{ nameKey }}</p>
+
+
+<br>
+
+
+
+
+<div class="container">
+<div *ngIf="students.length > 0" class="panel panel-info" >
+    <div class="panel-heading">Panel with panel-info class</div>
+    <div class="panel-body">
+        <table class="table">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Father Name</th>
+                <th>Age</th>
+                <th>Course</th>
+                <th>Modify</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let student of students"  >
+                  <td>{{ student.name }}</td>
+                  <td>{{ student.fatherName }}</td>
+                  <td>{{ student.age }}</td>
+                  <td>{{ student.course }}</td>
+                  <td>
+                    <button (click)="editStudent(student.id)" class="btn"> Edit </button>
+                    <button (click)="removeStudent(student.id)" class="btn">Remove</button>
+                  </td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+</div>
+<p *ngIf="students.length == 0" class="center">No Record Found</p>
+</div>
+
+
+
+<table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+
+  <!-- Position Column -->
+  <ng-container matColumnDef="position">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> No. </th>
+    <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="weight">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Weight </th>
+    <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+  </ng-container>
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="symbol">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Symbol </th>
+    <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
