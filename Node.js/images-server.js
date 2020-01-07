@@ -5,7 +5,7 @@ const app = express()
 app.use('/assets', express.static('assets'))
 
 app.get('/',  (req, res) => {
-    res.send("hello world")
+    res.send("hello world app")
 
 })
 
