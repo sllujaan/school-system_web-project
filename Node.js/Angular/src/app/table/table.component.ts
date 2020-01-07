@@ -83,6 +83,10 @@ export class TableComponent implements OnInit {
   @HostListener('window:resize', ['$event'])
   onResize(event) {
     console.log(event.target.innerWidth)
+    if(event.target.innerWidth < 700){
+      console.log("width is less than 700")
+      this.dialogConfig.width = "100%"
+    }
   }
 
 }

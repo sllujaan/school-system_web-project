@@ -166,69 +166,115 @@
 
   <div class="formContainer">
   
-    <div class="box1">aa</div>
+    <div class="box1" style="overflow: auto;">
+      <!--Name Field-->
+      <div>
+        <mat-form-field>
+          <input matInput maxlength="10" placeholder="Enter your Name" [formControl]="studentForm.get('name')" required>
+          <mat-error *ngIf="studentForm.invalid" >{{ getErrorMessage('n') }}</mat-error>
+        </mat-form-field>
+      </div>
 
-    <div class="box2">
-          <!--Age Field-->
-          <div>
-            <mat-form-field>
-              <mat-select placeholder="Select your Age" required [formControl]="studentForm.get('age')" >
-                <mat-option *ngFor='let _age of age' [value]="_age">{{_age}}</mat-option>
-              </mat-select>
-            </mat-form-field>
-          </div>
-        
-        <!--Gender Field-->
-        <div style="text-align: left;">
-            <div><label id="example-radio-group-label">Select Gender</label></div>
-          <mat-radio-group aria-label="Select an option">
-            <mat-radio-button value="1">Male</mat-radio-button>
-            <mat-radio-button value="2" style="margin-left: 10px;">Female</mat-radio-button>
-          </mat-radio-group>
-        </div>
-  
-        <!--Date Picker-->
-        <div>
+      <!--Father Name Field-->
+      <div>
+        <mat-form-field>
+          <input matInput maxlength="10" placeholder="Enter your Father Name" [formControl]="studentForm.get('fatherName')" required>
+          <mat-error *ngIf="studentForm.invalid" >{{ getErrorMessage('f') }}</mat-error>
+        </mat-form-field>
+      </div>
+
+      <!--Email Field-->
+      <div>
           <mat-form-field>
-            <input matInput [matDatepicker]="picker" placeholder="Date of Birth">
-            <mat-datepicker-toggle  matSuffix [for]="picker"></mat-datepicker-toggle>
-            <mat-datepicker #picker></mat-datepicker>
+            <input matInput maxlength="10" placeholder="Enter your Email" [formControl]="studentForm.get('email')" required>
+            <mat-error *ngIf="studentForm.invalid" >{{ getErrorMessage('e') }}</mat-error>
           </mat-form-field>
         </div>
-  
-        <!-- backuped image GUI
-          <div class="custom-file mb-3" style="background-color: green;">
-            <input accept="image/*" (change)="imageUploadFun($event)" type="file" style="width: 100%;background-color: yellow;" id="customFile" name="filename">
-            <br>
-            <div>
-              <img name="userImage" [src]="imagePath" style="height: 150px;width: 150px;" alt="error">          
-            </div>
-          </div>-->
-  
-          <div class="custom-file mb-3">
-  
-            <input accept="image/*" (change)="imageUploadFun($event)" type="file" style="width: 100%;" id="customFile" name="filename">
-              <br>
-  
-            <div style="width: 150px; height: 150px; border: 2px solid grey; border-radius: 12px;">
-              
-              <div>
-                <img name="userImage" [src]="imagePath" style="height: 146px;width: 146px; border-radius: 12px;" alt="error">          
-              </div>
-            </div>
-            
-            
-          </div>
-  
-        <div style="margin-top: 20px;">
-            <button mat-raised-button (click)="trySubmit()" color="primary">Submit</button>
-            <button style="margin-left: 10px;" mat-raised-button color="warn">Clear</button>
+      
+      <!--Phone Field-->
+      <div>
+          <mat-form-field>
+            <input matInput maxlength="10" placeholder="Enter your Phone" [formControl]="studentForm.get('password')" required>
+            <mat-error *ngIf="studentForm.invalid" >{{ getErrorMessage('p') }}</mat-error>
+          </mat-form-field>
         </div>
+
+      <!--Password Field-->
+      <div>
+          <mat-form-field>
+            <input matInput maxlength="10" placeholder="Enter your Password" [formControl]="studentForm.get('password')" required>
+            <mat-error *ngIf="studentForm.invalid" >{{ getErrorMessage('p') }}</mat-error>
+          </mat-form-field>
+      </div>
+      
+      <!--conform Password Field-->
+      <div>
+          <mat-form-field>
+            <input matInput maxlength="10" placeholder="Enter your password" [formControl]="studentForm.get('password')" required>
+            <mat-error *ngIf="studentForm.invalid" >{{ getErrorMessage('p') }}</mat-error>
+          </mat-form-field>
+      </div>
+    </div>
+    <div class="box2" style="overflow: auto;">
+      <!--Age Field-->
+      <div>
+        <mat-form-field>
+          <mat-select placeholder="Select your Age" required [formControl]="studentForm.get('age')" >
+            <mat-option *ngFor='let _age of age' [value]="_age">{{_age}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    
+    <!--Gender Field-->
+    <div style="text-align: left;">
+        <div><label id="example-radio-group-label">Select Gender</label></div>
+      <mat-radio-group aria-label="Select an option">
+        <mat-radio-button value="1">Male</mat-radio-button>
+        <mat-radio-button value="2" style="margin-left: 10px;">Female</mat-radio-button>
+      </mat-radio-group>
     </div>
 
-    
+    <!--Date Picker-->
+    <div>
+      <mat-form-field>
+        <input matInput [matDatepicker]="picker" placeholder="Date of Birth">
+        <mat-datepicker-toggle  matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </div>
+
+    <!-- backuped image GUI
+      <div class="custom-file mb-3" style="background-color: green;">
+        <input accept="image/*" (change)="imageUploadFun($event)" type="file" style="width: 100%;background-color: yellow;" id="customFile" name="filename">
+        <br>
+        <div>
+          <img name="userImage" [src]="imagePath" style="height: 150px;width: 150px;" alt="error">          
+        </div>
+      </div>-->
+
+      <div class="custom-file mb-3">
+
+        <input accept="image/*" (change)="imageUploadFun($event)" type="file" style="width: 100%;" id="customFile" name="filename">
+          <br>
+
+        <div style="width: 150px; height: 150px; border: 2px solid grey; border-radius: 12px;">
+          
+          <div>
+            <img name="userImage" [src]="imagePath" style="height: 146px;width: 146px; border-radius: 12px;" alt="error">          
+          </div>
+        </div>
+        
+        
+      </div>
+
+    <div style="margin-top: 20px;">
+        <button mat-raised-button (click)="trySubmit()" color="primary">Submit</button>
+        <button style="margin-left: 10px;" mat-raised-button color="warn">Clear</button>
+    </div>
+    </div>
 
   </div>
 </div>
 
-<br>
+<br><br><br><br>
+<br><br><br><br>
